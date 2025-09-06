@@ -10,6 +10,7 @@ from methods.eye import predict_eye
 from methods.skin import predict_skin
 from methods.chatbot import ask_gemini_medical  
 from methods.hospital import find_hospitals
+from methods.cancer import predict_cancer  
 
 app = FastAPI()
 
@@ -61,6 +62,11 @@ async def detect_eye(file: UploadFile = File(...)):
     img = await read_image(file)
     return predict_eye(img)
 
+@app.post("/detect-cancer/")   
+async def detect_cancer(file: UploadFile = File(...)):
+    img = await read_image(file)
+    return predict_cancer(img)
+
 @app.post("/ask-medical")
 def ask_medical(question: MedicalQuestion):
     return {"answer": ask_gemini_medical(question.text)}
@@ -69,5 +75,6 @@ def ask_medical(question: MedicalQuestion):
 def search_hospitals(search_data: HospitalSearch):
     result = find_hospitals(search_data.location, search_data.disease)
     return {"answer": result}
-# Run with:
-# uvicorn main:app --port 8000 --reload
+
+
+#uvicorn main:app --reload --port 8000
