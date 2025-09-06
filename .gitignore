@@ -1,2 +1,4 @@
-# Ignore models
-backend/models/
+backend/models/brain_model.onnx
+backend/models/chest_model.onnx
+backend/models/eye_model.onnx
+backend/models/skin_model.onnx
