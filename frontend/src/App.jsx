@@ -1,12 +1,33 @@
+import { Routes, Route } from "react-router-dom";
+
 import Home from "./pages/homepage";
+import ChatbotPage from "./pages/chatbotpage";
+import BrainPage from "./pages/brainpage";
+import CancerPage from "./pages/cancerpage";
+import EyePage from "./pages/eyepage";
+import HospitalPage from "./pages/hospitalpage";
+import ChestPage from "./pages/chestpage"
+import SkinPage from "./pages/skinpage";
+import MainLayout from "./components/mainlayout";
+import AboutPage from "./pages/aboutpage";
+import ContactPage from "./pages/contactpage";
 
 function App() {
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-xl p-4 m-4">Medical-App</h1>
-      <Home/>
-      <button className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-600">Get Started</button>
-    </div>
+    <Routes>
+      <Route element={<MainLayout />}>
+      <Route path="/" element={<Home />} />
+      <Route path="/brain" element={<BrainPage />} />
+      <Route path="/skin" element={<SkinPage />} />
+      <Route path="/cancer" element={<CancerPage />} />
+      <Route path="/eye" element={<EyePage />} />
+      <Route path="/hospital" element={<HospitalPage />} />
+      <Route path="/chest" element={<ChestPage />} />
+      <Route path="/chatbot" element={<ChatbotPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
+      </Route>
+    </Routes>
   );
 }
 
