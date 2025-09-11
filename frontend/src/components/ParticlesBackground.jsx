@@ -12,15 +12,19 @@ export default function ParticlesBackground() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    // Particle count based on screen width
+    let particleCount = 700;
+    if (window.innerWidth < 640) particleCount = 200; // phones
+    else if (window.innerWidth < 1024) particleCount = 400; // tablets
+
     const particles = [];
-    const particleCount = 700; // keep high density
 
     // Create particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 2, // faster speed
+        vx: (Math.random() - 0.5) * 2,
         vy: (Math.random() - 0.5) * 2,
         size: Math.random() * 2 + 1,
         opacity: Math.random() * 0.7 + 0.3,
@@ -53,10 +57,9 @@ export default function ParticlesBackground() {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-           ctx.strokeStyle = `hsla(${particle.hue}, 70%, 60%, ${
-  0.5 * (1 - distance / 100) // much brighter
-})`;
-
+            ctx.strokeStyle = `hsla(${particle.hue}, 70%, 60%, ${
+              0.5 * (1 - distance / 100)
+            })`;
             ctx.lineWidth = 0.9;
             ctx.stroke();
           }
