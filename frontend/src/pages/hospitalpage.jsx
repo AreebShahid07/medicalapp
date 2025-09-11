@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, Search, Hospital, Phone, Star, Navigation, ArrowLeft, Sparkles, Clock, Shield, Award } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function HospitalFinderPage() {
     const [address, setAddress] = useState("");
@@ -113,6 +114,7 @@ export default function HospitalFinderPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Dynamic Background */}
+            <ParticlesBackground />
             <div 
                 className="absolute inset-0 opacity-20"
                 style={{

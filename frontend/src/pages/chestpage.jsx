@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Activity, Upload, Zap, Shield, Clock, CheckCircle, AlertTriangle, ArrowLeft, Sparkles, Heart, TrendingUp, Stethoscope } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function ChestPage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -145,6 +146,7 @@ export default function ChestPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Dynamic Background */}
+            <ParticlesBackground />
             <div 
                 className="absolute inset-0 opacity-20"
                 style={{

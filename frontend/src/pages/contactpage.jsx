@@ -30,6 +30,7 @@ import {
   Globe,
   Award,
 } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function ContactPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -208,6 +209,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white overflow-hidden relative">
       {/* Dynamic Background */}
+      <ParticlesBackground />
       <div
         className="absolute inset-0 opacity-30"
         style={{

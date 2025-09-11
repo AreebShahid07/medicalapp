@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Stethoscope, Upload, Zap, Shield, Clock, CheckCircle, AlertTriangle, ArrowLeft, Sparkles, Microscope, TrendingUp, Target } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function SkinPage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -190,6 +191,7 @@ export default function SkinPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Dynamic Background */}
+            <ParticlesBackground />
             <div 
                 className="absolute inset-0 opacity-20"
                 style={{

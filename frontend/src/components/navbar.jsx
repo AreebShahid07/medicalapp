@@ -310,109 +310,118 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* Mobile Menu */}
-            {isMobileMenuOpen && (
-                <div className="fixed inset-0 z-40 lg:hidden">
-                    <div className="fixed inset-0 bg-black/80 backdrop-blur-xl" onClick={() => setIsMobileMenuOpen(false)} />
-                    <div className="fixed top-0 right-0 bottom-0 w-80 bg-black/95 backdrop-blur-2xl border-l border-white/20 shadow-2xl">
-                        <div className="p-6 pt-24">
-                            {/* Mobile Logo */}
-                            <div className="flex items-center mb-8 pb-6 border-b border-white/10">
-                                <div className="w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center mr-3">
-                                    <Sparkles className="w-5 h-5 text-white" />
-                                </div>
-                                <div>
-                                    <div className="text-xl font-black text-white">MedicalAI</div>
-                                    <div className="text-xs text-blue-400">QUANTUM DIAGNOSTICS</div>
-                                </div>
-                            </div>
+           {/* Mobile Menu */}
+{isMobileMenuOpen && (
+  <div className="fixed inset-0 z-40 lg:hidden">
+    <div
+      className="fixed inset-0 bg-black/80 backdrop-blur-xl"
+      onClick={() => setIsMobileMenuOpen(false)}
+    />
+    <div className="fixed top-0 right-0 bottom-0 w-80 h-full bg-black/95 backdrop-blur-2xl border-l border-white/20 shadow-2xl overflow-y-auto">
+      <div className="p-6 pt-24">
+        {/* Mobile Logo */}
+        <div className="flex items-center mb-8 pb-6 border-b border-white/10">
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center mr-3">
+            <Sparkles className="w-5 h-5 text-white" />
+          </div>
+          <div>
+            <div className="text-xl font-black text-white">MedicalAI</div>
+            <div className="text-xs text-blue-400">QUANTUM DIAGNOSTICS</div>
+          </div>
+        </div>
 
-                            {/* Mobile Navigation */}
-                            <div className="space-y-4">
-                                <button
-                                    onClick={() => handleNavigation('/')}
-                                    className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
-                                >
-                                    <Home className="w-5 h-5 mr-3" />
-                                    Dashboard
-                                </button>
+        {/* Mobile Navigation */}
+        <div className="space-y-4">
+          <button
+            onClick={() => handleNavigation('/')}
+            className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+          >
+            <Home className="w-5 h-5 mr-3" />
+            Dashboard
+          </button>
 
-                                {/* Mobile Diagnostic Services */}
-                                <div className="space-y-2">
-                                    <div className="text-white font-semibold mb-3 flex items-center">
-                                        <Zap className="w-4 h-4 mr-2 text-blue-400" />
-                                        AI Diagnostics
-                                    </div>
-                                    {diagnosticServices.map((service) => {
-                                        const Icon = service.icon;
-                                        return (
-                                            <button
-                                                key={service.id}
-                                                onClick={() => handleNavigation(service.route)}
-                                                className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
-                                            >
-                                                <div className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center mr-3`}>
-                                                    <Icon className="w-4 h-4 text-white" />
-                                                </div>
-                                                <div className="text-left">
-                                                    <div className="font-medium">{service.title}</div>
-                                                </div>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+          {/* Diagnostic Services */}
+          <div className="space-y-2">
+            <div className="text-white font-semibold mb-3 flex items-center">
+              <Zap className="w-4 h-4 mr-2 text-blue-400" />
+              AI Diagnostics
+            </div>
+            {diagnosticServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <button
+                  key={service.id}
+                  onClick={() => handleNavigation(service.route)}
+                  className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                >
+                  <div
+                    className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center mr-3`}
+                  >
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-medium">{service.title}</div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
 
-                                {/* Mobile AI Services */}
-                                <div className="space-y-2 pt-4 border-t border-white/10">
-                                    <div className="text-white font-semibold mb-3 flex items-center">
-                                        <MessageCircle className="w-4 h-4 mr-2 text-teal-400" />
-                                        AI Services
-                                    </div>
-                                    {aiServices.map((service) => {
-                                        const Icon = service.icon;
-                                        return (
-                                            <button
-                                                key={service.id}
-                                                onClick={() => handleNavigation(service.route)}
-                                                className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
-                                            >
-                                                <div className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center mr-3`}>
-                                                    <Icon className="w-4 h-4 text-white" />
-                                                </div>
-                                                <div className="text-left">
-                                                    <div className="font-medium">{service.title}</div>
-                                                </div>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
+          {/* AI Services */}
+          <div className="space-y-2 pt-4 border-t border-white/10">
+            <div className="text-white font-semibold mb-3 flex items-center">
+              <MessageCircle className="w-4 h-4 mr-2 text-teal-400" />
+              AI Services
+            </div>
+            {aiServices.map((service) => {
+              const Icon = service.icon;
+              return (
+                <button
+                  key={service.id}
+                  onClick={() => handleNavigation(service.route)}
+                  className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+                >
+                  <div
+                    className={`w-8 h-8 bg-gradient-to-r ${service.gradient} rounded-lg flex items-center justify-center mr-3`}
+                  >
+                    <Icon className="w-4 h-4 text-white" />
+                  </div>
+                  <div className="text-left">
+                    <div className="font-medium">{service.title}</div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
 
-                                {/* Mobile Other Links */}
-                                <div className="pt-4 border-t border-white/10 space-y-2">
-                                    <button
-                                        onClick={() => handleNavigation('/about')}
-                                        className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
-                                    >
-                                        About
-                                    </button>
-                                    <button
-                                        onClick={() => handleNavigation('/contact')}
-                                        className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
-                                    >
-                                        Contact
-                                    </button>
-                                </div>
-                            </div>
+          {/* About / Contact */}
+          <div className="pt-4 border-t border-white/10 space-y-2">
+            <button
+              onClick={() => handleNavigation('/about')}
+              className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+            >
+              About
+            </button>
+            <button
+              onClick={() => handleNavigation('/contact')}
+              className="w-full flex items-center px-4 py-3 text-gray-300 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-300"
+            >
+              Contact
+            </button>
+          </div>
+        </div>
 
-                            {/* Mobile Security Badge */}
-                            <div className="mt-8 flex items-center justify-center px-4 py-3 bg-green-500/20 border border-green-500/30 rounded-xl">
-                                <Shield className="w-4 h-4 text-green-400 mr-2" />
-                                <span className="text-green-400 font-semibold">HIPAA Secure Platform</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
+        {/* Security Badge */}
+        <div className="mt-8 mb-6 flex items-center justify-center px-4 py-3 bg-green-500/20 border border-green-500/30 rounded-xl">
+          <Shield className="w-4 h-4 text-green-400 mr-2" />
+          <span className="text-green-400 font-semibold">
+            HIPAA Secure Platform
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
         </>
     );
 }

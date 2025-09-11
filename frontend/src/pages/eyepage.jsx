@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Eye, Upload, Zap, Shield, Clock, CheckCircle, AlertTriangle, ArrowLeft, Sparkles, Scan, TrendingUp, Target } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function EyePage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -148,6 +149,7 @@ export default function EyePage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Dynamic Background */}
+            <ParticlesBackground />
             <div 
                 className="absolute inset-0 opacity-20"
                 style={{

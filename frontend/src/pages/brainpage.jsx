@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Brain, Upload, Zap, Shield, Clock, CheckCircle, AlertTriangle, ArrowLeft, Sparkles, Activity, TrendingUp } from "lucide-react";
+import ParticlesBackground from "../components/ParticlesBackground";
 
 export default function BrainPage() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -122,6 +123,7 @@ export default function BrainPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-hidden relative">
             {/* Dynamic Background */}
+             <ParticlesBackground />
             <div 
                 className="absolute inset-0 opacity-20"
                 style={{
