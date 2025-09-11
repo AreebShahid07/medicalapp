@@ -29,14 +29,6 @@ export default function ChatbotPage() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, loading]);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-
   const simulateTyping = (text, callback) => {
     setIsTyping(true);
     let currentText = "";
